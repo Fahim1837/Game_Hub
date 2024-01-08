@@ -1,5 +1,6 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from './components/navigation-bar/NavBar'
+import GameGrid from './components/main-body/GameGrid'
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
             <GridItem
                 colSpan={{ base: 3, lg: 2 }}
                 h="100vh">
-                main
+                <GameGrid/>
             </GridItem>
         </Grid>
     )
