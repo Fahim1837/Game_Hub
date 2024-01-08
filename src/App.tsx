@@ -11,15 +11,13 @@ function App() {
             <Show above="lg">
                 <GridItem
                     colSpan={1}
-                    h="100vh"
-                    bg="green.300">
+                    h="100vh">
                     aside
                 </GridItem>
             </Show>
             <GridItem
                 colSpan={{ base: 3, lg: 2 }}
-                h="100vh"
-                bg="green.400">
+                h="100vh">
                 main
             </GridItem>
         </Grid>
