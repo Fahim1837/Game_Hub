@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import clientServices from "../services/client-services";
 
-interface Game {
+export interface Game {
     id: number,
     name: string,
-    slug: string
+    slug: string,
+    background_image: string
 }
 
 function UseGames () {
