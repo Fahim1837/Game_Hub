@@ -8,7 +8,7 @@ export interface Game {
     background_image: string
 }
 
-function UseGames () {
+function useGames () {
 const [game, setGame] = useState <Game[]> ([])
   const [error, setError] = useState ('')
   const [loader, setLoader] = useState (false)
@@ -29,4 +29,4 @@ const [game, setGame] = useState <Game[]> ([])
   return {game, error, loader}
 }
 
-export default UseGames
+export default useGames
