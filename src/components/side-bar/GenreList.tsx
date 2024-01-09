@@ -1,13 +1,14 @@
 import { Stack } from "@chakra-ui/react"
 import useGenres from "../../hooks/useGenres"
 import GenreLine from "./GenreLine"
+import CircularLoader from "../loaders/CircularLoader"
 
 function GenreList() {
     const {genre, error, loader} = useGenres()
   return (
     <>  
         {error && (<h1>{error}</h1>)}
-        {loader && (<h1>Loading...</h1>)}
+        {loader && <CircularLoader/>}
 
         <Stack>
             {genre.map((item) => <GenreLine line={item} key={item.id}/>)}

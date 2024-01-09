@@ -6,7 +6,7 @@ interface Props {
 }
 function GameCard ({card}: Props) {
   return (
-    <Card borderRadius={8} overflow= 'hidden'>
+    <Card borderRadius={8} overflow= 'hidden' w = '100%'>
         <Image src= {card.background_image} />
         <CardBody fontSize='3xl' fontWeight= 'bold'>
         {card.name}
