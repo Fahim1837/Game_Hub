@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import clientServices from "../services/client-services"
 
-interface Genre {
+export interface Genre {
     id: number,
     name: string,
     slug: string
