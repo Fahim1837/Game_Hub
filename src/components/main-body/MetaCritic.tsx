@@ -12,7 +12,7 @@ function MetaCritic({critic}: Props) {
     else color = 'red'
     
   return (
-    <Badge colorScheme={color} fontSize= '16px' >{critic.metacritic}</Badge>
+    <Badge colorScheme={color} fontSize= '16px' borderRadius={6}>{critic.metacritic}</Badge>
     )
 }
 
