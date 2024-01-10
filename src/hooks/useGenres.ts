@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import clientServices from "../services/client-services"
+import useGenericHooks from "./useGenericHooks"
 
 export interface Genre {
     id: number,
@@ -8,26 +7,6 @@ export interface Genre {
     image_background: string
 }
 
-function useGenres () {
-    const [genre, setGenre] = useState <Genre[]> ([])
-    const [error, setError] = useState ('')
-    const [loader, setLoader] = useState (false)
-
-    useEffect (() => {
-        setLoader (true)
-        const req = clientServices.get('/genres')
-
-        req.then ((res) => {
-            setGenre (res.data.results)
-            setLoader (false)
-        })
-        req.catch ((err) => {
-            setError (err.message)
-            setLoader (false)
-        })
-    }, [])
-
-    return {genre, error, loader}
-}
+const useGenres = () => useGenericHooks <Genre> ('/genres')
 
 export default useGenres

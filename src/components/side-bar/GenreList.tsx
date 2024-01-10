@@ -4,14 +4,14 @@ import GenreLine from "./GenreLine"
 import CircularLoader from "../loaders/CircularLoader"
 
 function GenreList() {
-    const {genre, error, loader} = useGenres()
+    const {data, error, loader} = useGenres()
   return (
     <>  
         {error && (<h1>{error}</h1>)}
         {loader && <CircularLoader/>}
 
         <Stack>
-            {genre.map((item) => <GenreLine line={item} key={item.id}/>)}
+            {data.map((item) => <GenreLine line={item} key={item.id}/>)}
         </Stack>
     </>
   )

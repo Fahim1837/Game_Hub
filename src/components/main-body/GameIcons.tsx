@@ -26,7 +26,7 @@ function GameIcons({icon}: Props) {
   return (
     <HStack fontSize= '20px'>
        {icon.map((item) => 
-       <Icon as= {iconMap[item.slug]} color= 'gray.500'/>)} 
+       <Icon key= {item.id} as= {iconMap[item.slug]} color= 'gray.500'/>)} 
     </HStack>
   )
 }
