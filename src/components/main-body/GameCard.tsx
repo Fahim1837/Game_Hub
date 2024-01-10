@@ -1,5 +1,7 @@
-import { Card, CardBody, Image } from "@chakra-ui/react"
+import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react"
 import { Game } from "../../hooks/useGames"
+import GameIcons from "./GameIcons"
+import MetaCritic from "./MetaCritic"
 
 interface Props {
   card: Game
@@ -8,8 +10,13 @@ function GameCard ({card}: Props) {
   return (
     <Card borderRadius={8} overflow= 'hidden' w = '100%'>
         <Image src= {card.background_image} />
-        <CardBody fontSize='3xl' fontWeight= 'bold'>
-        {card.name}
+        <CardBody >
+        <Heading fontSize='3xl' fontWeight= 'bold' >{card.name}</Heading>
+
+        <HStack justifyContent= 'space-between' mt={3} >
+          <GameIcons icon={card.parent_platforms.map((p) => p.platform)}/>
+          <MetaCritic critic={card} />
+        </HStack>
         </CardBody>
     </Card>
     )
