@@ -1,5 +1,5 @@
+import { GameQuery } from '../App'
 import useGenericHooks from './useGenericHooks'
-import { Genre } from './useGenres'
 
 export interface Platform {
     id: number
@@ -16,19 +16,16 @@ export interface Game {
     parent_platforms: { platform: Platform }[]
 }
 
-const useGames = (
-    selectedGenre: Genre | null,
-    selectedPlatform: Platform | null
-) =>
+const useGames = (gameQuery: GameQuery) =>
     useGenericHooks<Game>(
         '/games',
         {
             params: {
-                genres: selectedGenre?.slug,
-                platforms: selectedPlatform?.id,
+                genres: gameQuery.genre?.slug,
+                platforms: gameQuery.platform?.id,
             },
         },
-        [selectedGenre?.slug, selectedPlatform?.id]
+        [gameQuery]
     )
 
 export default useGames
