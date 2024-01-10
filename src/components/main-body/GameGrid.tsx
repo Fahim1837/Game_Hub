@@ -2,9 +2,13 @@ import {SimpleGrid } from "@chakra-ui/react"
 import useGames from "../../hooks/useGames"
 import GameCard from "./GameCard"
 import SkeletonLoader from "../loaders/SkeletonLoader"
+import { Genre } from "../../hooks/useGenres"
 
-function GameGrid () {
-  const {error, loader, data} = useGames()
+interface Props {
+  selectedGenre: Genre | null
+}
+function GameGrid ({selectedGenre}: Props) {
+  const {error, loader, data} = useGames(selectedGenre)
     return (
     <>  
         {error && (<h1>{error}</h1>)}

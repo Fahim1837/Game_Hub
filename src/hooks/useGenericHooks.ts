@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import clientServices from "../services/client-services";
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
 
 interface Fetch <T>{
     count: number,
     results: T []
 }
 
-function useGenericHooks <T> (endPoint: string) {
+function useGenericHooks <T> (endPoint: string, requestConfig ?: AxiosRequestConfig, deps ?: any []) {
 const [data, setData] = useState <T[]> ([])
   const [error, setError] = useState ('')
   const [loader, setLoader] = useState (false)
@@ -15,7 +15,10 @@ const [data, setData] = useState <T[]> ([])
 
     setLoader (true)
     const controller = new AbortController ()
-    const req = clientServices.get <Fetch <T>> (endPoint, {signal: controller.signal})
+    const req = clientServices.get <Fetch <T>> (endPoint, {
+      signal: controller.signal, 
+      ...requestConfig  
+    })
     
     req.then ((res) => {
         setData(res.data.results)
@@ -27,7 +30,7 @@ const [data, setData] = useState <T[]> ([])
             setLoader (false)
         })
     return () => controller.abort()
-  }, [])
+  }, deps ?[... deps]: [])
   return {data, error, loader}
 }
 

@@ -1,9 +1,13 @@
 import { Stack } from "@chakra-ui/react"
-import useGenres from "../../hooks/useGenres"
+import useGenres, { Genre } from "../../hooks/useGenres"
 import GenreLine from "./GenreLine"
 import CircularLoader from "../loaders/CircularLoader"
 
-function GenreList() {
+interface Props {
+  onSelectGenre: (line: Genre) => void 
+}
+
+function GenreList({onSelectGenre}: Props) {
     const {data, error, loader} = useGenres()
   return (
     <>  
@@ -11,7 +15,7 @@ function GenreList() {
         {loader && <CircularLoader/>}
 
         <Stack>
-            {data.map((item) => <GenreLine line={item} key={item.id}/>)}
+            {data.map((item) => <GenreLine onSelectGenre={(line) => onSelectGenre(line)} line={item} key={item.id}/>)}
         </Stack>
     </>
   )
