@@ -16,15 +16,19 @@ export interface Game {
     parent_platforms: { platform: Platform }[]
 }
 
-const useGames = (selectedGenre: Genre | null) =>
+const useGames = (
+    selectedGenre: Genre | null,
+    selectedPlatform: Platform | null
+) =>
     useGenericHooks<Game>(
         '/games',
         {
             params: {
                 genres: selectedGenre?.slug,
+                platforms: selectedPlatform?.id,
             },
         },
-        [selectedGenre?.slug]
+        [selectedGenre?.slug, selectedPlatform?.id]
     )
 
 export default useGames
