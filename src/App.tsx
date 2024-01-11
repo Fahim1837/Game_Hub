@@ -11,6 +11,7 @@ import { Platform } from './hooks/useGames'
 export interface GameQuery {
     genre: Genre
     platform: Platform
+    selectOrder: string | null
 }
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
                         onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
                         selectedPlatform={gameQuery.platform}
                     />
-                    <OrderList />
+                    <OrderList onSelectOrder={(selectOrder) => setGameQuery({...gameQuery, selectOrder})}/>
                 </HStack>
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>
