@@ -3,9 +3,10 @@ import { FaAngleDown } from "react-icons/fa"
 
 interface Props {
     onSelectOrder: (val: string) => void
+    selectedOrder: string | null
 }
 
-function OrderList({onSelectOrder}: Props) {
+function OrderList({onSelectOrder, selectedOrder}: Props) {
     
     const order = [
         {value: '', label: 'Relevance'},
@@ -15,12 +16,15 @@ function OrderList({onSelectOrder}: Props) {
         {value: '-rating', label: 'Average Rating'},
         {value: '-metacritic', label: 'Popularity'}
     ]
+
+    let currentOrder = order.find((item) => item.value === selectedOrder)
+    
     return (
         <Menu>
             <MenuButton
                 as={Button}
                 rightIcon={<FaAngleDown />}>
-                Order By: Relevance
+                Order By: {currentOrder?.label}
             </MenuButton>
             <MenuList>
                 {order.map((item) => <MenuItem onClick={() => onSelectOrder(item.value)} key={item.value} value={item.value}>{item.label}</MenuItem>)}

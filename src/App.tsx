@@ -35,12 +35,14 @@ function App() {
             <GridItem
                 colSpan={{ base: 3, lg: 2 }}
                 h="100vh">
-                <HStack>
+                <HStack mb={4} ms={4} spacing={4}>
                     <PlatformList
                         onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
                         selectedPlatform={gameQuery.platform}
                     />
-                    <OrderList onSelectOrder={(selectOrder) => setGameQuery({...gameQuery, selectOrder})}/>
+                    <OrderList 
+                    selectedOrder={gameQuery.selectOrder}
+                    onSelectOrder={(selectOrder) => setGameQuery({...gameQuery, selectOrder})}/>
                 </HStack>
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>

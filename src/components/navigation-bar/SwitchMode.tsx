@@ -7,7 +7,8 @@ function SwitchMode() {
         <FormControl
             display="flex"
             alignItems="center"
-            width="auto">
+            width="auto"
+            whiteSpace= {{md:'nowrap'}}>
             <FormLabel
                 htmlFor="dark"
                 mb="0">
