@@ -3,7 +3,11 @@ import Logo from './Logo'
 import SwitchMode from './SwitchMode'
 import SearchBar from './SearchBar'
 
-function NavBar() {
+interface Props {
+    onSearch: (text: string) => void
+}
+
+function NavBar({onSearch}: Props) {
     return (
         <HStack
             justifyContent="space-between"
@@ -11,7 +15,7 @@ function NavBar() {
             ms={2}
             mb={3}>
             <Logo />
-            <SearchBar/>
+            <SearchBar onSearch={onSearch}/>
             <SwitchMode />
         </HStack>
     )

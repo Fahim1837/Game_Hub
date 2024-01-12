@@ -24,7 +24,7 @@ function OrderList({onSelectOrder, selectedOrder}: Props) {
             <MenuButton
                 as={Button}
                 rightIcon={<FaAngleDown />}>
-                Order By: {currentOrder?.label}
+                Order By: {currentOrder?.label || 'Relevance'}
             </MenuButton>
             <MenuList>
                 {order.map((item) => <MenuItem onClick={() => onSelectOrder(item.value)} key={item.value} value={item.value}>{item.label}</MenuItem>)}
