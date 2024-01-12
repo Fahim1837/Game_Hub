@@ -14,7 +14,12 @@ function GenreList({ selectedGenre, onSelectGenre }: Props) {
         <>
             {error && <h1>{error}</h1>}
             {loader && <CircularLoader />}
-            <Heading px={4} fontSize='3xl' my={3}>Genres</Heading>
+            <Heading
+                px={4}
+                fontSize="3xl"
+                my={3}>
+                Genres
+            </Heading>
             <Stack>
                 {data.map((item) => (
                     <GenreLine

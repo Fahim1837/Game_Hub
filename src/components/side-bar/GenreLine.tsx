@@ -20,9 +20,13 @@ function GenreLine({ line, onSelectGenre, selectedGenre }: Props) {
                 src={line.image_background}
                 boxSize={12}
                 borderRadius={10}
-                objectFit= 'cover'
+                objectFit="cover"
             />
-            <Link fontSize="xl" whiteSpace= 'normal'>{line.name}</Link>
+            <Link
+                fontSize="xl"
+                whiteSpace="normal">
+                {line.name}
+            </Link>
         </HStack>
     )
 }

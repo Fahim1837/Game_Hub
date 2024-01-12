@@ -8,7 +8,7 @@ function SwitchMode() {
             display="flex"
             alignItems="center"
             width="auto"
-            whiteSpace= {{md:'nowrap'}}>
+            whiteSpace={{ md: 'nowrap' }}>
             <FormLabel
                 htmlFor="dark"
                 mb="0">

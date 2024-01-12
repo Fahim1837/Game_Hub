@@ -22,30 +22,44 @@ function App() {
     return (
         <Grid templateColumns="3">
             <GridItem colSpan={3}>
-                <NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})}/>
+                <NavBar
+                    onSearch={(searchText) =>
+                        setGameQuery({ ...gameQuery, searchText })
+                    }
+                />
             </GridItem>
             <Show above="lg">
                 <GridItem
                     colSpan={1}
                     h="100vh">
                     <GenreList
-                        selectedGenre= {gameQuery.genre}
-                        onSelectGenre= {(genre) => setGameQuery({ ...gameQuery, genre })}
+                        selectedGenre={gameQuery.genre}
+                        onSelectGenre={(genre) =>
+                            setGameQuery({ ...gameQuery, genre })
+                        }
                     />
                 </GridItem>
             </Show>
             <GridItem
                 colSpan={{ base: 3, lg: 2 }}
                 h="100vh">
-                <GameHeading heading = {gameQuery}/>
-                <HStack mb={4} ms={4} spacing={4}>
+                <GameHeading heading={gameQuery} />
+                <HStack
+                    mb={4}
+                    ms={4}
+                    spacing={4}>
                     <PlatformList
-                        onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+                        onSelectPlatform={(platform) =>
+                            setGameQuery({ ...gameQuery, platform })
+                        }
                         selectedPlatform={gameQuery.platform}
                     />
-                    <OrderList 
-                    selectedOrder={gameQuery.selectOrder}
-                    onSelectOrder={(selectOrder) => setGameQuery({...gameQuery, selectOrder})}/>
+                    <OrderList
+                        selectedOrder={gameQuery.selectOrder}
+                        onSelectOrder={(selectOrder) =>
+                            setGameQuery({ ...gameQuery, selectOrder })
+                        }
+                    />
                 </HStack>
                 <GameGrid gameQuery={gameQuery} />
             </GridItem>

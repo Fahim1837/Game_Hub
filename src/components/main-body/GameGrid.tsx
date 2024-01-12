@@ -19,7 +19,6 @@ function GameGrid({ gameQuery }: Props) {
                 gap={10}
                 w={1100}
                 px={4}>
-                    
                 {data.map((item) => (
                     <GameCard
                         card={item}

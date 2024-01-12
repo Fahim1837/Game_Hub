@@ -7,7 +7,7 @@ interface Props {
     onSearch: (text: string) => void
 }
 
-function NavBar({onSearch}: Props) {
+function NavBar({ onSearch }: Props) {
     return (
         <HStack
             justifyContent="space-between"
@@ -15,7 +15,7 @@ function NavBar({onSearch}: Props) {
             ms={2}
             mb={3}>
             <Logo />
-            <SearchBar onSearch={onSearch}/>
+            <SearchBar onSearch={onSearch} />
             <SwitchMode />
         </HStack>
     )

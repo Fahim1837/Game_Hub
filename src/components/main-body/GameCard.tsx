@@ -16,7 +16,6 @@ function GameCard({ card }: Props) {
             w="100%">
             <Image src={cropImg(card.background_image)} />
             <CardBody>
-
                 <HStack
                     justifyContent="space-between"
                     mb={3}>
@@ -25,13 +24,13 @@ function GameCard({ card }: Props) {
                     />
                     <MetaCritic critic={card} />
                 </HStack>
-                
+
                 <Heading
                     fontSize="3xl"
                     fontWeight="bold">
                     {card.name}
                 </Heading>
-                <Emoji rating={card.rating_top}/>
+                <Emoji rating={card.rating_top} />
             </CardBody>
         </Card>
     )
