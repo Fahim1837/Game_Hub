@@ -1,5 +1,4 @@
-import useGenericHooks from './useGenericHooks'
-
+import genreData from '../data/genre-data'
 export interface Genre {
     id: number
     name: string
@@ -7,6 +6,6 @@ export interface Genre {
     image_background: string
 }
 
-const useGenres = () => useGenericHooks<Genre>('/genres')
+const useGenres = () => ({data: genreData, error: null, })
 
 export default useGenres
