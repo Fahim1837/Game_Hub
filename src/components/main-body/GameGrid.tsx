@@ -17,7 +17,9 @@ function GameGrid({ gameQuery }: Props) {
             <SimpleGrid
                 columns={{ base: 1, md: 2, lg: 3 }}
                 gap={10}
+                w={1100}
                 px={4}>
+                    
                 {data.map((item) => (
                     <GameCard
                         card={item}
